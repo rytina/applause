@@ -77,7 +77,8 @@ TabbarButton:
 ;
 
 Constant returns VariableDeclaration:
-	{Constant} 'const' name=ID value=ScalarExpression;	
+	{Constant} 'const' name=ID language+=("de="|"en=")? value+=ScalarExpression 
+								(',' language+=("de="|"en=")? value+=ScalarExpression)*;	
 
 // -------------------------------------------
 // types
