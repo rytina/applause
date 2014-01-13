@@ -122,8 +122,8 @@ SectionedView:
 	TableView | DetailsView;
 		
 TableView:
-	'tableview' name=ID ('(' content=Parameter ')')? '{'
-		'title=' title=ScalarExpression
+	'tableview' name=ID ('(' content=Parameter ')')? (':' superView=[TableView])? '{'
+		('title=' title=ScalarExpression)?
 		(sections+=ViewSection)*
 	'}';
 	
@@ -159,6 +159,7 @@ SectionCell:
 		('image=' image=ScalarExpression)?
 		('query=' query=ScalarExpression)?
 		('action=' action=ViewAction)?
+		('button=' buttonAction=ViewAction)?
 	'}';	
 	
 enum CellType:
@@ -173,7 +174,11 @@ CollectionIterator:
 	collection=CollectionExpression 'as' name=ID;
 	
 ViewAction:
-	ViewCall | ExternalOpen;
+	ViewCall | ExternalOpen | ActionDelegate;
+	
+ActionDelegate:
+{ActionDelegate}
+	"delegate";
 	
 ExternalOpen:
 	url=ScalarExpression;
