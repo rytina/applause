@@ -9,6 +9,7 @@ import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.ComplexProviderConstruction;
 import org.applause.lang.applauseDsl.ContentProvider;
 import org.applause.lang.applauseDsl.Expression;
+import org.applause.lang.applauseDsl.PredefinedParameter;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ComplexProviderConstructionImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ComplexProviderConstructionImpl#getArgument <em>Argument</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.ComplexProviderConstructionImpl#getPredefinedParameter <em>Predefined Parameter</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +55,16 @@ public class ComplexProviderConstructionImpl extends ProviderConstructionImpl im
    * @ordered
    */
   protected Expression argument;
+
+  /**
+   * The cached value of the '{@link #getPredefinedParameter() <em>Predefined Parameter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPredefinedParameter()
+   * @generated
+   * @ordered
+   */
+  protected PredefinedParameter predefinedParameter;
 
   /**
    * <!-- begin-user-doc -->
@@ -171,6 +183,54 @@ public class ComplexProviderConstructionImpl extends ProviderConstructionImpl im
    * <!-- end-user-doc -->
    * @generated
    */
+  public PredefinedParameter getPredefinedParameter()
+  {
+    return predefinedParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPredefinedParameter(PredefinedParameter newPredefinedParameter, NotificationChain msgs)
+  {
+    PredefinedParameter oldPredefinedParameter = predefinedParameter;
+    predefinedParameter = newPredefinedParameter;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER, oldPredefinedParameter, newPredefinedParameter);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPredefinedParameter(PredefinedParameter newPredefinedParameter)
+  {
+    if (newPredefinedParameter != predefinedParameter)
+    {
+      NotificationChain msgs = null;
+      if (predefinedParameter != null)
+        msgs = ((InternalEObject)predefinedParameter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER, null, msgs);
+      if (newPredefinedParameter != null)
+        msgs = ((InternalEObject)newPredefinedParameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER, null, msgs);
+      msgs = basicSetPredefinedParameter(newPredefinedParameter, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER, newPredefinedParameter, newPredefinedParameter));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -178,6 +238,8 @@ public class ComplexProviderConstructionImpl extends ProviderConstructionImpl im
     {
       case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT:
         return basicSetArgument(null, msgs);
+      case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER:
+        return basicSetPredefinedParameter(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,6 +259,8 @@ public class ComplexProviderConstructionImpl extends ProviderConstructionImpl im
         return basicGetProvider();
       case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT:
         return getArgument();
+      case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER:
+        return getPredefinedParameter();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -216,6 +280,9 @@ public class ComplexProviderConstructionImpl extends ProviderConstructionImpl im
         return;
       case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT:
         setArgument((Expression)newValue);
+        return;
+      case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER:
+        setPredefinedParameter((PredefinedParameter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -237,6 +304,9 @@ public class ComplexProviderConstructionImpl extends ProviderConstructionImpl im
       case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT:
         setArgument((Expression)null);
         return;
+      case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER:
+        setPredefinedParameter((PredefinedParameter)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -255,6 +325,8 @@ public class ComplexProviderConstructionImpl extends ProviderConstructionImpl im
         return provider != null;
       case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT:
         return argument != null;
+      case ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__PREDEFINED_PARAMETER:
+        return predefinedParameter != null;
     }
     return super.eIsSet(featureID);
   }

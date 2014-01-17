@@ -170,34 +170,7 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 		}
 	}
 	
-	boolean errorIfCountOfArgumentsDontMatch(boolean expected, boolean actual, int feature) {
-		if(expected && !actual)
-			error("Expects argument but nothing was passed", feature);
-		if(!expected && actual)
-			error("No argument expected but an argument was passed", feature);
-		return expected != actual;
-	}
 	
-	@Check
-	void viewsArgumentOfCorrectType(ViewCall vc) {
-		Parameter formalParameter = vc.getView().getContent();
-		ProviderConstruction actualParameter = vc.getProvider();
-		
-		if(! errorIfCountOfArgumentsDontMatch(formalParameter!=null, actualParameter!=null, ApplauseDslPackage.VIEW_CALL__PROVIDER) ) {
-			TypeDescription expectedType = formalParameter.getDescription();
-			TypeDescription actualType = TypeUtil.getTypeOf(vc.getProvider());
-			errorIfNotAssignable(actualType, expectedType, ApplauseDslPackage.VIEW_CALL__PROVIDER);
-		}
-	}
 
-	@Check
-	void contentProvidersArgumentOfCorrectType(ComplexProviderConstruction pc) {
-		ContentProvider p = pc.getProvider();
-		if(! errorIfCountOfArgumentsDontMatch(p.getParameter() != null, pc.getArgument() != null, ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT)) {
-			TypeDescription expectedType = TypeUtil.getTypeOf(p.getParameter());
-			TypeDescription actualType = TypeUtil.getTypeOf(pc.getArgument());
-			errorIfNotAssignable(actualType, expectedType, ApplauseDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT);
-		}
-	}
 
 }

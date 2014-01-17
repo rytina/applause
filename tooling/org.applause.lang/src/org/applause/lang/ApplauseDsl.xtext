@@ -46,6 +46,13 @@ CollectionExpression:
 	
 StringLiteral:
 	value=STRING;
+	
+PredefinedParameter:
+	SectionId;
+	
+SectionId:
+{SectionId}
+	'section.id';	
 
 StringFunction:
 	{StringConcat} '(' (values+=ScalarExpression)+ ')' |
@@ -58,6 +65,8 @@ CollectionLiteral:
 CollectionFunction:
 	{StringSplit} 'split(' value=ScalarExpression ',' delimiter=ScalarExpression ')'
 ;
+
+
 	
 // -------------------------------------------
 // applications
@@ -108,7 +117,7 @@ ContentProvider:
 	'selects' selection=ScalarExpression;
 
 ProviderConstruction:
-	{ComplexProviderConstruction} provider=[ContentProvider] '(' (argument=Expression)? ')' |
+	{ComplexProviderConstruction} provider=[ContentProvider] '(' (argument=Expression|predefinedParameter=PredefinedParameter)? ')' |
 	{SimpleProviderConstruction} expression=Expression;
 
 // -------------------------------------------
@@ -123,15 +132,17 @@ SectionedView:
 	TableView | DetailsView;
 		
 TableView:
-	'tableview' name=ID ('(' content=Parameter ')')? (':' superView=[TableView])? '{'
+	'tableview' name=ID ('(' content=Parameter ')')? (':' superView=[SectionedView])? '{'
 		('title=' title=ScalarExpression)?
+		(forAllSections=ViewForAllSections)?
 		(sections+=ViewSection)*
 	'}';
 	
 DetailsView:
-	'detailsview' name=ID ('(' content=Parameter ')')? '{'
+	'detailsview' name=ID ('(' content=Parameter ')')? (':' superView=[SectionedView])? '{'
 		'title=' title=ScalarExpression
 		(header=ViewHeader)?
+		(forAllSections=ViewForAllSections)?
 		(sections+=ViewSection)*
 	'}';
 	
@@ -148,10 +159,19 @@ ViewHeader:
 	'}';
 	
 ViewSection:
+{ViewSection}
 	'section' '{'
 		('title=' title=ScalarExpression)?
-		(cells+=SectionCell)+
+		(cells+=SectionCell)*
 	'}';
+	
+ViewForAllSections:
+{ViewForAllSections}
+	'forAllSections' '{'
+		('title=' title=ScalarExpression)?
+		('content=' provider=ProviderConstruction)?
+		(cells+=SectionCell)*
+	'}';	
 	
 SectionCell:
 	'cell' type=CellType ('foreach' iterator=CollectionIterator)? '{'

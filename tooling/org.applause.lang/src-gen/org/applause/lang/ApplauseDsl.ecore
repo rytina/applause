@@ -38,6 +38,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//Expression #//ScalarExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PredefinedParameter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SectionId" eSuperTypes="#//PredefinedParameter"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringFunction" eSuperTypes="#//Expression #//ScalarExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="CollectionLiteral" eSuperTypes="#//Expression #//CollectionExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
@@ -83,7 +85,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SectionedView" eSuperTypes="#//View">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superView" eType="#//SectionedView"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forAllSections" eType="#//ViewForAllSections"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
         eType="#//ViewSection" containment="true"/>
@@ -112,6 +117,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1"
         eType="#//SectionCell" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewForAllSections">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="#//ProviderConstruction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1"
+        eType="#//SectionCell" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SectionCell">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CellType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="iterator" eType="#//CollectionIterator"
@@ -125,6 +138,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="#//ScalarExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//ViewAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buttonAction" eType="#//ViewAction"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CellType">
@@ -140,6 +155,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionDelegate" eSuperTypes="#//ViewAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalOpen" eSuperTypes="#//ViewAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="url" eType="#//ScalarExpression"
         containment="true"/>
@@ -172,12 +188,16 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//VariableDeclaration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ScalarExpression"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
+        eType="#//ScalarExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexProviderConstruction" eSuperTypes="#//ProviderConstruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="#//ContentProvider"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="argument" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predefinedParameter" eType="#//PredefinedParameter"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleProviderConstruction" eSuperTypes="#//ProviderConstruction">

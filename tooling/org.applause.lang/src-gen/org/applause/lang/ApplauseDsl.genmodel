@@ -47,6 +47,8 @@
     <genClasses ecoreClass="ApplauseDsl.ecore#//StringLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//StringLiteral/value"/>
     </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//PredefinedParameter"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//SectionId"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//StringFunction"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//CollectionLiteral">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//CollectionLiteral/items"/>
@@ -82,7 +84,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//View/content"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//SectionedView">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionedView/superView"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionedView/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionedView/forAllSections"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionedView/sections"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//TableView"/>
@@ -102,6 +106,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewSection/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewSection/cells"/>
     </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ViewForAllSections">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewForAllSections/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewForAllSections/provider"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewForAllSections/cells"/>
+    </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//SectionCell">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//SectionCell/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/iterator"/>
@@ -110,11 +119,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/image"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/query"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/buttonAction"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//CollectionIterator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//CollectionIterator/collection"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ViewAction"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ActionDelegate"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ExternalOpen">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ExternalOpen/url"/>
     </genClasses>
@@ -138,11 +149,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//StringSplit/delimiter"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Constant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Constant/language"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Constant/value"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ComplexProviderConstruction">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ComplexProviderConstruction/provider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ComplexProviderConstruction/argument"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ComplexProviderConstruction/predefinedParameter"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//SimpleProviderConstruction">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SimpleProviderConstruction/expression"/>

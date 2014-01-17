@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getImage <em>Image</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getQuery <em>Query</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getButtonAction <em>Button Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,6 +122,16 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * @ordered
    */
   protected ViewAction action;
+
+  /**
+   * The cached value of the '{@link #getButtonAction() <em>Button Action</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getButtonAction()
+   * @generated
+   * @ordered
+   */
+  protected ViewAction buttonAction;
 
   /**
    * <!-- begin-user-doc -->
@@ -459,6 +470,54 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * <!-- end-user-doc -->
    * @generated
    */
+  public ViewAction getButtonAction()
+  {
+    return buttonAction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetButtonAction(ViewAction newButtonAction, NotificationChain msgs)
+  {
+    ViewAction oldButtonAction = buttonAction;
+    buttonAction = newButtonAction;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION, oldButtonAction, newButtonAction);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setButtonAction(ViewAction newButtonAction)
+  {
+    if (newButtonAction != buttonAction)
+    {
+      NotificationChain msgs = null;
+      if (buttonAction != null)
+        msgs = ((InternalEObject)buttonAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION, null, msgs);
+      if (newButtonAction != null)
+        msgs = ((InternalEObject)newButtonAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION, null, msgs);
+      msgs = basicSetButtonAction(newButtonAction, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION, newButtonAction, newButtonAction));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -476,6 +535,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return basicSetQuery(null, msgs);
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         return basicSetAction(null, msgs);
+      case ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION:
+        return basicSetButtonAction(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -504,6 +565,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return getQuery();
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         return getAction();
+      case ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION:
+        return getButtonAction();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -538,6 +601,9 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return;
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         setAction((ViewAction)newValue);
+        return;
+      case ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION:
+        setButtonAction((ViewAction)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -574,6 +640,9 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         setAction((ViewAction)null);
         return;
+      case ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION:
+        setButtonAction((ViewAction)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -602,6 +671,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return query != null;
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         return action != null;
+      case ApplauseDslPackage.SECTION_CELL__BUTTON_ACTION:
+        return buttonAction != null;
     }
     return super.eIsSet(featureID);
   }

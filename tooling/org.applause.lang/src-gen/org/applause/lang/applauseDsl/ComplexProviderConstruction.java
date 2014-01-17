@@ -16,6 +16,7 @@ package org.applause.lang.applauseDsl;
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.ComplexProviderConstruction#getProvider <em>Provider</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.ComplexProviderConstruction#getArgument <em>Argument</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.ComplexProviderConstruction#getPredefinedParameter <em>Predefined Parameter</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +77,31 @@ public interface ComplexProviderConstruction extends ProviderConstruction
    * @generated
    */
   void setArgument(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Predefined Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Predefined Parameter</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Predefined Parameter</em>' containment reference.
+   * @see #setPredefinedParameter(PredefinedParameter)
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getComplexProviderConstruction_PredefinedParameter()
+   * @model containment="true"
+   * @generated
+   */
+  PredefinedParameter getPredefinedParameter();
+
+  /**
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.ComplexProviderConstruction#getPredefinedParameter <em>Predefined Parameter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Predefined Parameter</em>' containment reference.
+   * @see #getPredefinedParameter()
+   * @generated
+   */
+  void setPredefinedParameter(PredefinedParameter value);
 
 } // ComplexProviderConstruction

@@ -133,6 +133,16 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createStringLiteralAdapter();
       }
       @Override
+      public Adapter casePredefinedParameter(PredefinedParameter object)
+      {
+        return createPredefinedParameterAdapter();
+      }
+      @Override
+      public Adapter caseSectionId(SectionId object)
+      {
+        return createSectionIdAdapter();
+      }
+      @Override
       public Adapter caseStringFunction(StringFunction object)
       {
         return createStringFunctionAdapter();
@@ -218,6 +228,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createViewSectionAdapter();
       }
       @Override
+      public Adapter caseViewForAllSections(ViewForAllSections object)
+      {
+        return createViewForAllSectionsAdapter();
+      }
+      @Override
       public Adapter caseSectionCell(SectionCell object)
       {
         return createSectionCellAdapter();
@@ -231,6 +246,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseViewAction(ViewAction object)
       {
         return createViewActionAdapter();
+      }
+      @Override
+      public Adapter caseActionDelegate(ActionDelegate object)
+      {
+        return createActionDelegateAdapter();
       }
       @Override
       public Adapter caseExternalOpen(ExternalOpen object)
@@ -460,6 +480,36 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStringLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.PredefinedParameter <em>Predefined Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.PredefinedParameter
+   * @generated
+   */
+  public Adapter createPredefinedParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.SectionId <em>Section Id</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.SectionId
+   * @generated
+   */
+  public Adapter createSectionIdAdapter()
   {
     return null;
   }
@@ -720,6 +770,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ViewForAllSections <em>View For All Sections</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ViewForAllSections
+   * @generated
+   */
+  public Adapter createViewForAllSectionsAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.SectionCell <em>Section Cell</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -760,6 +825,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createViewActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ActionDelegate <em>Action Delegate</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ActionDelegate
+   * @generated
+   */
+  public Adapter createActionDelegateAdapter()
   {
     return null;
   }

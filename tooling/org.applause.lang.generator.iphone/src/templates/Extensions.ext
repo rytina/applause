@@ -161,3 +161,20 @@ methodSignature(ContentProvider p):
 	
 providersWithImplementation(Application this):
 	model().elements.typeSelect(ContentProvider);
+	
+sections(SectionedView this):
+	sections.size + superView.sections.size;	
+
+forAllSections(SectionedView this): 
+	forAllSections == null ? superView.forAllSections : forAllSections;
+		
+	
+ selection(ProviderConstruction this):
+	ComplexProviderConstruction.isInstance(this)
+		? ((StringLiteral)((ComplexProviderConstruction)this).provider.selection).value
+		: ((StringLiteral)((SimpleProviderConstruction)this).expression).value;
+		
+ parameter(ProviderConstruction this):
+	ComplexProviderConstruction.isInstance(this)
+		? (SectionId.isInstance(((ComplexProviderConstruction)this).predefinedParameter) ? "section+1": ((ComplexProviderConstruction)this).predefinedParameter) 				
+		: "no parameter for SimpleProviderConstruction!";		

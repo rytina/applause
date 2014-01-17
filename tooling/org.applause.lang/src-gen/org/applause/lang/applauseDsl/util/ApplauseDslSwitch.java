@@ -180,6 +180,21 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplauseDslPackage.PREDEFINED_PARAMETER:
+      {
+        PredefinedParameter predefinedParameter = (PredefinedParameter)theEObject;
+        T result = casePredefinedParameter(predefinedParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.SECTION_ID:
+      {
+        SectionId sectionId = (SectionId)theEObject;
+        T result = caseSectionId(sectionId);
+        if (result == null) result = casePredefinedParameter(sectionId);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplauseDslPackage.STRING_FUNCTION:
       {
         StringFunction stringFunction = (StringFunction)theEObject;
@@ -324,6 +339,13 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplauseDslPackage.VIEW_FOR_ALL_SECTIONS:
+      {
+        ViewForAllSections viewForAllSections = (ViewForAllSections)theEObject;
+        T result = caseViewForAllSections(viewForAllSections);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplauseDslPackage.SECTION_CELL:
       {
         SectionCell sectionCell = (SectionCell)theEObject;
@@ -344,6 +366,14 @@ public class ApplauseDslSwitch<T>
       {
         ViewAction viewAction = (ViewAction)theEObject;
         T result = caseViewAction(viewAction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.ACTION_DELEGATE:
+      {
+        ActionDelegate actionDelegate = (ActionDelegate)theEObject;
+        T result = caseActionDelegate(actionDelegate);
+        if (result == null) result = caseViewAction(actionDelegate);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -604,6 +634,38 @@ public class ApplauseDslSwitch<T>
    * @generated
    */
   public T caseStringLiteral(StringLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Predefined Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Predefined Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePredefinedParameter(PredefinedParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Section Id</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Section Id</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSectionId(SectionId object)
   {
     return null;
   }
@@ -881,6 +943,22 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>View For All Sections</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>View For All Sections</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseViewForAllSections(ViewForAllSections object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Section Cell</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -924,6 +1002,22 @@ public class ApplauseDslSwitch<T>
    * @generated
    */
   public T caseViewAction(ViewAction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action Delegate</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action Delegate</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActionDelegate(ActionDelegate object)
   {
     return null;
   }

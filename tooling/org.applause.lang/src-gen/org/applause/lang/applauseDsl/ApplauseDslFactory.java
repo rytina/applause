@@ -125,6 +125,24 @@ public interface ApplauseDslFactory extends EFactory
   StringLiteral createStringLiteral();
 
   /**
+   * Returns a new object of class '<em>Predefined Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Predefined Parameter</em>'.
+   * @generated
+   */
+  PredefinedParameter createPredefinedParameter();
+
+  /**
+   * Returns a new object of class '<em>Section Id</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Section Id</em>'.
+   * @generated
+   */
+  SectionId createSectionId();
+
+  /**
    * Returns a new object of class '<em>String Function</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -278,6 +296,15 @@ public interface ApplauseDslFactory extends EFactory
   ViewSection createViewSection();
 
   /**
+   * Returns a new object of class '<em>View For All Sections</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View For All Sections</em>'.
+   * @generated
+   */
+  ViewForAllSections createViewForAllSections();
+
+  /**
    * Returns a new object of class '<em>Section Cell</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -303,6 +330,15 @@ public interface ApplauseDslFactory extends EFactory
    * @generated
    */
   ViewAction createViewAction();
+
+  /**
+   * Returns a new object of class '<em>Action Delegate</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Delegate</em>'.
+   * @generated
+   */
+  ActionDelegate createActionDelegate();
 
   /**
    * Returns a new object of class '<em>External Open</em>'.

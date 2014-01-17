@@ -16,6 +16,8 @@
 «FILE filenameHeader()»
 #import <UIKit/UIKit.h>
 #import "«baseClassFilenameHeader()»"
+#import "IPContentProvider.h"
+#import "CXMLElement.h"
 
 @interface «className()» : «baseClassName()» {
 
@@ -54,19 +56,15 @@
 	if(!contentProvider || !contentProvider.content || contentProvider.loading)
 		return 0;
 	else
-    	return «sections.size»;
+    	return «sections()»;
 }
 «ENDIF»«ENDDEFINE»
 
-«DEFINE sectionTitleHeader FOR SectionedView»«IF sections.reject(e|e.title == null).size > 0»
+«DEFINE sectionTitleHeader FOR SectionedView»«IF sections() > 0»
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-«FOREACH sections AS s ITERATOR i SEPARATOR  "else" -»
-«IF s.title != null»
-	if(section == «i.counter0») {
-		return «s.title.expression('', '')»;
-	}
-«ENDIF»
-«ENDFOREACH-»
+    NSArray *catNodes = [[contentProvider safeValueForKeyPath:@"document"] nodesForXPath:[NSString stringWithFormat:@"«selection(forAllSections().provider)»",«parameter(forAllSections().provider)»] error:nil];
+    NSString *title = [catNodes[0] attributeForName:@"id"].stringValue;
+    return title;
 }
 «ENDIF»«ENDDEFINE»
 

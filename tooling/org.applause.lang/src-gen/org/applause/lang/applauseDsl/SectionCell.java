@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getImage <em>Image</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getQuery <em>Query</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getAction <em>Action</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getButtonAction <em>Button Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -215,5 +216,31 @@ public interface SectionCell extends EObject
    * @generated
    */
   void setAction(ViewAction value);
+
+  /**
+   * Returns the value of the '<em><b>Button Action</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Button Action</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Button Action</em>' containment reference.
+   * @see #setButtonAction(ViewAction)
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getSectionCell_ButtonAction()
+   * @model containment="true"
+   * @generated
+   */
+  ViewAction getButtonAction();
+
+  /**
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.SectionCell#getButtonAction <em>Button Action</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Button Action</em>' containment reference.
+   * @see #getButtonAction()
+   * @generated
+   */
+  void setButtonAction(ViewAction value);
 
 } // SectionCell

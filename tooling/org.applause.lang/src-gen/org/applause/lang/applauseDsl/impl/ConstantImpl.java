@@ -5,17 +5,22 @@
  */
 package org.applause.lang.applauseDsl.impl;
 
+import java.util.Collection;
+
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Constant;
 import org.applause.lang.applauseDsl.ScalarExpression;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.ConstantImpl#getLanguage <em>Language</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -33,14 +39,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ConstantImpl extends VariableDeclarationImpl implements Constant
 {
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLanguage()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> language;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected ScalarExpression value;
+  protected EList<ScalarExpression> value;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,47 +84,27 @@ public class ConstantImpl extends VariableDeclarationImpl implements Constant
    * <!-- end-user-doc -->
    * @generated
    */
-  public ScalarExpression getValue()
+  public EList<String> getLanguage()
   {
+    if (language == null)
+    {
+      language = new EDataTypeEList<String>(String.class, this, ApplauseDslPackage.CONSTANT__LANGUAGE);
+    }
+    return language;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ScalarExpression> getValue()
+  {
+    if (value == null)
+    {
+      value = new EObjectContainmentEList<ScalarExpression>(ScalarExpression.class, this, ApplauseDslPackage.CONSTANT__VALUE);
+    }
     return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetValue(ScalarExpression newValue, NotificationChain msgs)
-  {
-    ScalarExpression oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONSTANT__VALUE, oldValue, newValue);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(ScalarExpression newValue)
-  {
-    if (newValue != value)
-    {
-      NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CONSTANT__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CONSTANT__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONSTANT__VALUE, newValue, newValue));
   }
 
   /**
@@ -122,7 +118,7 @@ public class ConstantImpl extends VariableDeclarationImpl implements Constant
     switch (featureID)
     {
       case ApplauseDslPackage.CONSTANT__VALUE:
-        return basicSetValue(null, msgs);
+        return ((InternalEList<?>)getValue()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,6 +133,8 @@ public class ConstantImpl extends VariableDeclarationImpl implements Constant
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.CONSTANT__LANGUAGE:
+        return getLanguage();
       case ApplauseDslPackage.CONSTANT__VALUE:
         return getValue();
     }
@@ -148,13 +146,19 @@ public class ConstantImpl extends VariableDeclarationImpl implements Constant
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.CONSTANT__LANGUAGE:
+        getLanguage().clear();
+        getLanguage().addAll((Collection<? extends String>)newValue);
+        return;
       case ApplauseDslPackage.CONSTANT__VALUE:
-        setValue((ScalarExpression)newValue);
+        getValue().clear();
+        getValue().addAll((Collection<? extends ScalarExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +174,11 @@ public class ConstantImpl extends VariableDeclarationImpl implements Constant
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.CONSTANT__LANGUAGE:
+        getLanguage().clear();
+        return;
       case ApplauseDslPackage.CONSTANT__VALUE:
-        setValue((ScalarExpression)null);
+        getValue().clear();
         return;
     }
     super.eUnset(featureID);
@@ -187,10 +194,29 @@ public class ConstantImpl extends VariableDeclarationImpl implements Constant
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.CONSTANT__LANGUAGE:
+        return language != null && !language.isEmpty();
       case ApplauseDslPackage.CONSTANT__VALUE:
-        return value != null;
+        return value != null && !value.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (language: ");
+    result.append(language);
+    result.append(')');
+    return result.toString();
   }
 
 } //ConstantImpl

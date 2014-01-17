@@ -79,6 +79,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.SCALAR_EXPRESSION: return createScalarExpression();
       case ApplauseDslPackage.COLLECTION_EXPRESSION: return createCollectionExpression();
       case ApplauseDslPackage.STRING_LITERAL: return createStringLiteral();
+      case ApplauseDslPackage.PREDEFINED_PARAMETER: return createPredefinedParameter();
+      case ApplauseDslPackage.SECTION_ID: return createSectionId();
       case ApplauseDslPackage.STRING_FUNCTION: return createStringFunction();
       case ApplauseDslPackage.COLLECTION_LITERAL: return createCollectionLiteral();
       case ApplauseDslPackage.COLLECTION_FUNCTION: return createCollectionFunction();
@@ -96,9 +98,11 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.CUSTOM_VIEW: return createCustomView();
       case ApplauseDslPackage.VIEW_HEADER: return createViewHeader();
       case ApplauseDslPackage.VIEW_SECTION: return createViewSection();
+      case ApplauseDslPackage.VIEW_FOR_ALL_SECTIONS: return createViewForAllSections();
       case ApplauseDslPackage.SECTION_CELL: return createSectionCell();
       case ApplauseDslPackage.COLLECTION_ITERATOR: return createCollectionIterator();
       case ApplauseDslPackage.VIEW_ACTION: return createViewAction();
+      case ApplauseDslPackage.ACTION_DELEGATE: return createActionDelegate();
       case ApplauseDslPackage.EXTERNAL_OPEN: return createExternalOpen();
       case ApplauseDslPackage.VIEW_CALL: return createViewCall();
       case ApplauseDslPackage.STRING_CONCAT: return createStringConcat();
@@ -266,6 +270,28 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     StringLiteralImpl stringLiteral = new StringLiteralImpl();
     return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PredefinedParameter createPredefinedParameter()
+  {
+    PredefinedParameterImpl predefinedParameter = new PredefinedParameterImpl();
+    return predefinedParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SectionId createSectionId()
+  {
+    SectionIdImpl sectionId = new SectionIdImpl();
+    return sectionId;
   }
 
   /**
@@ -460,6 +486,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ViewForAllSections createViewForAllSections()
+  {
+    ViewForAllSectionsImpl viewForAllSections = new ViewForAllSectionsImpl();
+    return viewForAllSections;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public SectionCell createSectionCell()
   {
     SectionCellImpl sectionCell = new SectionCellImpl();
@@ -486,6 +523,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     ViewActionImpl viewAction = new ViewActionImpl();
     return viewAction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ActionDelegate createActionDelegate()
+  {
+    ActionDelegateImpl actionDelegate = new ActionDelegateImpl();
+    return actionDelegate;
   }
 
   /**

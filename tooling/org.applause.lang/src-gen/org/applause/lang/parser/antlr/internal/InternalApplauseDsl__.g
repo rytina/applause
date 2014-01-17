@@ -9,77 +9,85 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 
 T11 : '[]' ;
 T12 : '.' ;
-T13 : '(' ;
-T14 : ')' ;
-T15 : 'replace(' ;
-T16 : ',' ;
-T17 : 'urlconform(' ;
-T18 : '[' ;
-T19 : ']' ;
-T20 : 'split(' ;
-T21 : 'tabbarApplication' ;
-T22 : 'application' ;
-T23 : '{' ;
-T24 : 'splash=' ;
-T25 : '}' ;
-T26 : 'button' ;
-T27 : 'title=' ;
-T28 : 'icon=' ;
-T29 : 'view=' ;
-T30 : 'const' ;
-T31 : 'type' ;
-T32 : 'mapsTo' ;
-T33 : 'entity' ;
-T34 : 'extends' ;
-T35 : 'derived' ;
-T36 : 'contentprovider' ;
-T37 : 'returns' ;
-T38 : 'resolves' ;
-T39 : 'fetches' ;
-T40 : 'XML' ;
-T41 : 'from' ;
-T42 : 'selects' ;
-T43 : 'tableview' ;
-T44 : 'detailsview' ;
-T45 : 'customview' ;
-T46 : 'implementedBy' ;
-T47 : 'header' ;
-T48 : 'subtitle=' ;
-T49 : 'details=' ;
-T50 : 'image=' ;
-T51 : 'section' ;
-T52 : 'cell' ;
-T53 : 'foreach' ;
-T54 : 'text=' ;
-T55 : 'query=' ;
-T56 : 'action=' ;
-T57 : 'as' ;
-T58 : 'Default' ;
-T59 : 'DefaultWithDisclosure' ;
-T60 : 'Value2' ;
-T61 : 'Double' ;
-T62 : 'Subtitle' ;
-T63 : 'Map' ;
+T13 : 'section.id' ;
+T14 : '(' ;
+T15 : ')' ;
+T16 : 'replace(' ;
+T17 : ',' ;
+T18 : 'urlconform(' ;
+T19 : '[' ;
+T20 : ']' ;
+T21 : 'split(' ;
+T22 : 'tabbarApplication' ;
+T23 : 'application' ;
+T24 : '{' ;
+T25 : 'splash=' ;
+T26 : '}' ;
+T27 : 'button' ;
+T28 : 'title=' ;
+T29 : 'icon=' ;
+T30 : 'view=' ;
+T31 : 'const' ;
+T32 : 'de=' ;
+T33 : 'en=' ;
+T34 : 'type' ;
+T35 : 'mapsTo' ;
+T36 : 'entity' ;
+T37 : 'extends' ;
+T38 : 'derived' ;
+T39 : 'contentprovider' ;
+T40 : 'returns' ;
+T41 : 'resolves' ;
+T42 : 'fetches' ;
+T43 : 'XML' ;
+T44 : 'from' ;
+T45 : 'selects' ;
+T46 : 'tableview' ;
+T47 : ':' ;
+T48 : 'detailsview' ;
+T49 : 'customview' ;
+T50 : 'implementedBy' ;
+T51 : 'header' ;
+T52 : 'subtitle=' ;
+T53 : 'details=' ;
+T54 : 'image=' ;
+T55 : 'section' ;
+T56 : 'forAllSections' ;
+T57 : 'content=' ;
+T58 : 'cell' ;
+T59 : 'foreach' ;
+T60 : 'text=' ;
+T61 : 'query=' ;
+T62 : 'action=' ;
+T63 : 'button=' ;
+T64 : 'as' ;
+T65 : 'delegate' ;
+T66 : 'Default' ;
+T67 : 'DefaultWithDisclosure' ;
+T68 : 'Value2' ;
+T69 : 'Double' ;
+T70 : 'Subtitle' ;
+T71 : 'Map' ;
 
-// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3323
+// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3827
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3325
+// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3829
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3327
+// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3831
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3329
+// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3833
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3331
+// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3835
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3333
+// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3837
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3335
+// $ANTLR src "../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g" 3839
 RULE_ANY_OTHER : .;
 
 
